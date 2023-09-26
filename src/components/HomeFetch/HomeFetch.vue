@@ -2,8 +2,10 @@
 
 import {ref,onMounted} from "vue";
 import axios from "axios";
+import {RouterLink} from "vue-router";
 
 const recipes = ref([]);
+
 
 
 async function fetchRecipes() {
@@ -29,13 +31,16 @@ onMounted(() => {
 
 
 
+
 </script>
 
 <template>
   <div>
-    <h1>Recipes</h1>
+    <h1>Welcome to Recipes</h1>
     <div  v-for="recipe in recipes" :key="recipe.id">
-      <img :src="recipe.image" alt="image" width="200"/>
+      <img class="mouse" :src="recipe.image" alt="image" width="200">
+      <br>
+      <RouterLink to="/about">To the Recipe</RouterLink>
       <h1>{{recipe.title}}</h1>
       <h2 v-if="recipe.vegan">Vegan </h2>
       <h2 v-else>Not Vegan</h2>
@@ -47,5 +52,9 @@ onMounted(() => {
 
 
 <style scoped>
+
+.mouse {
+  cursor: grabbing;
+}
 
 </style>
