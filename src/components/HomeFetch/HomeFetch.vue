@@ -24,6 +24,7 @@ async function fetchRecipes() {
 
 onMounted(() => {
   fetchRecipes();
+  console.log(recipes);
 });
 
 
@@ -31,15 +32,15 @@ onMounted(() => {
 </script>
 
 <template>
-
   <div>
     <h1>Recipes</h1>
-
-    <div v-for="recipe in recipes" :key="recipe.id">
+    <div  v-for="recipe in recipes" :key="recipe.id">
+      <img :src="recipe.image" alt="image" width="200"/>
       <h1>{{recipe.title}}</h1>
-      <img :src="recipe.image" alt="image">
+      <h2 v-if="recipe.vegan">Vegan </h2>
+      <h2 v-else>Not Vegan</h2>
+      <p>{{recipe.summary}}</p>
     </div>
-
   </div>
 </template>
 
