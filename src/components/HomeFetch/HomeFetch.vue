@@ -26,7 +26,6 @@ async function fetchRecipes() {
 
 onMounted(() => {
   fetchRecipes();
-  console.log(recipes);
 });
 
 
@@ -40,7 +39,7 @@ onMounted(() => {
     <div  v-for="recipe in recipes" :key="recipe.id">
       <img class="mouse" :src="recipe.image" alt="image" width="200">
       <br>
-      <RouterLink to="/about">To the Recipe</RouterLink>
+     <RouterLink :to="`/recipe/${recipe.id}`">To the Recipe</RouterLink>
       <h1>{{recipe.title}}</h1>
       <h2 v-if="recipe.vegan">Vegan </h2>
       <h2 v-else>Not Vegan</h2>
@@ -53,8 +52,6 @@ onMounted(() => {
 
 <style scoped>
 
-.mouse {
-  cursor: grabbing;
-}
+
 
 </style>
