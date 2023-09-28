@@ -35,8 +35,8 @@ onMounted(() => {
 
 <template>
   <div>
-    <h1>Welcome to Recipes</h1>
     <div  v-for="recipe in recipes" :key="recipe.id">
+      <br>
       <img class="mouse" :src="recipe.image" alt="image" width="200">
       <br>
      <RouterLink :to="`/recipe/${recipe.id}`">To the Recipe</RouterLink>
