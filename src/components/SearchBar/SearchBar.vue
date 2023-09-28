@@ -1,21 +1,3 @@
-<template>
-
-  <div>
-    <input v-model="searchTerm" placeholder="Enter Recipe Title" />
-    <button @click="searchRecipes()">Search</button>
-    <div v-for="recipe in recipes" v-if="recipes">
-      <img :src="`${recipe.image}`" alt="image" width="200"/>
-      <h3>{{ recipe.title }}</h3>
-      <RouterLink :to="`/recipe/${recipe.id}`">To the Recipe</RouterLink>
-    </div>
-    <div v-else>
-      <h1>Loading</h1>
-    </div>
-  </div>
-
-</template>
-
-
 <script setup>
 
 
@@ -45,7 +27,22 @@ const searchRecipes = async () => {
 };
 </script>
 
+<template>
 
+  <div>
+    <input v-model="searchTerm" placeholder="Enter Recipe Title" />
+    <button @click="searchRecipes()">Search</button>
+    <div v-for="recipe in recipes" v-if="recipes">
+      <img :src="`${recipe.image}`" alt="image" width="200"/>
+      <h3>{{ recipe.title }}</h3>
+      <RouterLink :to="`/recipe/${recipe.id}`">To the Recipe</RouterLink>
+    </div>
+    <div v-else>
+      <h1>Loading</h1>
+    </div>
+  </div>
+
+</template>
 
 
 <style scoped>

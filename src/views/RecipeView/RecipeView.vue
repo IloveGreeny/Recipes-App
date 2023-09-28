@@ -1,16 +1,17 @@
 <script setup>
 
+import {useRoute} from "vue-router";
 import {onMounted, ref} from "vue";
 import axios from "axios";
 
-const recipe = ref([]);
+const recipe = ref(null);
 
-
+const route = useRoute();
 
 
 const fetchRecipes = async () => {
   try {
-    const recipeId =  this.$route.params.id;
+    const recipeId = route.params.id;
     const response = await axios.get(
         `https://api.spoonacular.com/recipes/${recipeId}/information`,
         {
@@ -28,7 +29,6 @@ const fetchRecipes = async () => {
 
 onMounted(() => {
   fetchRecipes();
-  console.log(recipe);
 });
 
 
@@ -42,10 +42,11 @@ onMounted(() => {
       <img :src="recipe.image" alt="image"/>
       <h3>{{ recipe.title }}</h3>
       <p>{{ recipe.summary }}</p>
-
+    </div>
+    <div v-else-if="!recipe">
+      Loading
     </div>
   </div>
-  <h2>{{  this.$route.params.id }}</h2>
 </template>
 
 
