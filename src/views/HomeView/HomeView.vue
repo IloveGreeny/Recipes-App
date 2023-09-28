@@ -9,8 +9,16 @@ import SearchBar from "../../components/SearchBar/SearchBar.vue";
 
 <template>
   <main>
-    <h1>Welcome to Recipes</h1>
+    <RouterLink class="class" to="/">Welcome to Recipes</RouterLink>
     <SearchBar/>
     <HomeFetch/>
   </main>
 </template>
+
+
+<style scoped>
+.class {
+  text-decoration: none;
+  font-size: 24px;
+}
+</style>

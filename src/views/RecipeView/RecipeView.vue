@@ -35,7 +35,7 @@ onMounted(() => {
 </script>
 
 <template>
-
+  <RouterLink class="class" to="/">Welcome to Recipes</RouterLink>
   <div>
     <h2>Recipe Details</h2>
     <div v-if="recipe">
@@ -45,11 +45,16 @@ onMounted(() => {
 
     </div>
   </div>
-  <h2>{{$route.params.id}}</h2>
+  <h2>{{  this.$route.params.id }}</h2>
 </template>
 
 
 
 <style scoped>
+
+.class {
+  text-decoration: none;
+  font-size: 24px;
+}
 
 </style>
